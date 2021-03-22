@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.bozapodroz" android:installLocation="preferExternal">
-	<uses-sdk android:minSdkVersion="19" android:targetSdkVersion="29" />
-	<application android:label="BozaPodroz.Android" android:theme="@style/MainTheme">
+	<uses-sdk android:minSdkVersion="29" android:targetSdkVersion="29" />
+	<application android:label="BozaPodroz.Android" android:theme="@style/MainTheme" android:icon="@mipmap/icon">
 		<meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyDR-ddvPBSVtbiDZpe_TB7P9Xl19dagB48" />
 	</application>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
