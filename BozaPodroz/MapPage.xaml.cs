@@ -17,12 +17,15 @@ namespace BozaPodroz
     public partial class MapPage : ContentPage
     {
         private bool hasLocationPermission = false;
+
+        [Obsolete]
         public MapPage()
         {
             InitializeComponent();
             GetPermissions();
         }
 
+        [Obsolete]
         private async void GetPermissions()
         {
             try
@@ -46,9 +49,9 @@ namespace BozaPodroz
 
                     GetLocation();
                 }
-                else DisplayAlert("bez lokalizacji nie ma aplikacji", "hehe", "ok");
+                else await DisplayAlert("bez lokalizacji nie ma aplikacji", "hehe", "ok");
             }
-            catch(Exception ex) { DisplayAlert("error", ex.Message, "ok"); };
+            catch(Exception ex) { await DisplayAlert("error", ex.Message, "ok"); };
         }
         protected override async void OnAppearing()
         {

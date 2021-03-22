@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BozaPodroz.Logic;
 using BozaPodroz.Model;
+using Plugin.Geolocator;
 using SQLite;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -36,6 +38,15 @@ namespace BozaPodroz
                 }
                 else DisplayAlert("Niepowodzenie", "Nie d odano pomyślnie", "Ok");
             }
+        }
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+
+            var locator = CrossGeolocator.Current;
+            var position = await locator.GetPositionAsync();
+
+            var venues = await VenueLogic.GetVenues(position.Latitude, position.Longitude);
         }
     }
 }
