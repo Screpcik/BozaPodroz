@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BozaPodroz.PostDetail">
+    <StackLayout>
+        <Entry x:Name="experienceLabel"/>
+        <Button Text="Update"
+                x:Name="UpdateButton"
+                Clicked="UpdateButton_Clicked"/>
+        <Button Text="Delete"
+                x:Name="DeleteButton"
+                Clicked="DeleteButton_Clicked"/>
+    </StackLayout>
+</ContentPage>
