@@ -13,6 +13,10 @@ namespace BozaPodroz
         public MainPage()
         {
             InitializeComponent();
+
+            var assembly = typeof(MainPage);
+
+            iconImage.Source = ImageSource.FromResource("BozaPodroz.Assets.Images.logo.png", assembly);
         }
 
         private void Login_Clicked(object sender, EventArgs e)

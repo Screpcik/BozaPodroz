@@ -5,6 +5,7 @@
     
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Save"
+                     Icon="save.png"
                      Clicked="ToolbarItem_Clicked"/>
     </ContentPage.ToolbarItems>
     
