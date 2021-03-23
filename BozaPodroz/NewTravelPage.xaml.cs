@@ -22,21 +22,42 @@ namespace BozaPodroz
 
         private void ToolbarItem_Clicked(object sender, EventArgs e)
         {
-            Post post = new Post()
+            try
             {
-                Experience = experienceEntry.Text
-            };
+                var selectedVenue = venueListView.SelectedItem as Venue;
+                var firstCategory = selectedVenue.categories.FirstOrDefault();
 
-            using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
-            {
-                conn.CreateTable<Post>();
-                int rows = conn.Insert(post);
-
-                if (rows > 0)
+                Post post = new Post()
                 {
-                    DisplayAlert("Sukces", "Dodano pomyślnie", "Ok");
+                    Experience = experienceEntry.Text,
+                    CategoryId = firstCategory.id,
+                    CategoryName = firstCategory.name,
+                    Address = selectedVenue.location.address,
+                    Distance = selectedVenue.location.distance,
+                    Latitude = selectedVenue.location.lat,
+                    Longitude = selectedVenue.location.lng,
+                    VenueName = selectedVenue.name
+                };
+
+                using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
+                {
+                    conn.CreateTable<Post>();
+                    int rows = conn.Insert(post);
+
+                    if (rows > 0)
+                    {
+                        DisplayAlert("Sukces", "Dodano pomyślnie", "Ok");
+                    }
+                    else DisplayAlert("Niepowodzenie", "Nie d odano pomyślnie", "Ok");
                 }
-                else DisplayAlert("Niepowodzenie", "Nie d odano pomyślnie", "Ok");
+            }
+            catch(NullReferenceException nre)
+            {
+
+            }
+            catch(Exception ex)
+            {
+               
             }
         }
         protected override async void OnAppearing()
