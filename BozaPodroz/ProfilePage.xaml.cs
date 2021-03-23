@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+//test
 namespace BozaPodroz
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
