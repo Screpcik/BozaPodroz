@@ -51,14 +51,8 @@ namespace BozaPodroz
                     else DisplayAlert("Niepowodzenie", "Nie d odano pomyślnie", "Ok");
                 }
             }
-            catch(NullReferenceException nre)
-            {
-
-            }
-            catch(Exception ex)
-            {
-               
-            }
+            catch(NullReferenceException nre) { }
+            catch(Exception ex) { }
         }
         protected override async void OnAppearing()
         {
