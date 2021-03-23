@@ -3,8 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BozaPodroz.ProfilePage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Witaj na stronie profilu." />
+        <StackLayout Margin="20, 40, 20, 0">
+            <Label Text="wpisy:"
+                   HorizontalOptions="Center"
+                   TextColor="LightGray"/>
+            <Label x:Name="postCountLabel"
+                   HorizontalOptions="Center"
+                   TextColor="DarkBlue"
+                   FontAttributes="Bold"/>
+            <ListView x:Name="categoriesListView">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Path=Key}"
+                                  Detail="{Binding Path=Value}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
